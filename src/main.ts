@@ -4,6 +4,11 @@ import router from "./router";
 import store from "./store";
 import "@/assets/scss/main.scss"
 
+/* PLUGINS
+===============*/
+import axios from "@/plugins/axios"
+Vue.prototype.$http = axios
+
 Vue.config.productionTip = false;
 
 new Vue({
