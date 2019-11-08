@@ -9,6 +9,8 @@ import Vue from "vue"
 import User from "@/types/User"
 import UserList from "@/components/UserList.vue";
 import userService from "@/services/user.service.ts"
+import Post from "@/types/Post"
+import postService from "@/services/post.service"
 
 export default Vue.extend( {
   name: 'Home' as string,
@@ -17,13 +19,17 @@ export default Vue.extend( {
   },
   data () {
     return {
-      userList: [] as User[]
+      userList: [] as User[],
+      postList: [] as Post[]
     }
   },
   mounted () {
     const vm = this;
     userService.fetchusers().then(response => {
       vm.userList = response
+    })
+    postService.fetchPosts().then(response => {
+      vm.postList = response
     })
   }
 });
