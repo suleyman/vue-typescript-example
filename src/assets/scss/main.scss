@@ -1,2 +1,17 @@
-@import "variables";
-@import "general";
+/* BASE => Variables, Mixins and Placeholders
+================================================= */
+
+@import "base/variables";
+@import "base/mixins";
+@import "base/placeholders";
+
+/* FRAMEWORK => 
+================================================= */
+
+@import "framework/layout";
+@import "framework/grid";
+
+/* MODULES => 
+================================================= */
+
+@import "modules/buttons";
