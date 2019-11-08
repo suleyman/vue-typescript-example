@@ -1,12 +1,13 @@
 import User from "@/types/User"
+import axios from "@/plugins/axios"
 
 class UserService {
     constructor () {
         console.log('User service constructor..')
     }
     async fetchusers (): Promise<Array<User>> {
-        const userList = await fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
+        const userList = await axios.get('/users')
+            .then(response => response.data)
         return userList;
     }
 }
