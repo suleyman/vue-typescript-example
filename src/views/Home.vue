@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+    <button @click="login">Login</button>
+    <p>
+      isLogged: {{$store.getters.isAuthenticated}}
+    </p>
     <UserList :userList="userList" />
   </div>
 </template>
@@ -11,6 +15,7 @@ import UserList from "@/components/UserList.vue";
 import userService from "@/services/user.service.ts"
 import Post from "@/types/Post"
 import postService from "@/services/post.service"
+import { mapActions } from "vuex"
 
 export default Vue.extend( {
   name: 'Home' as string,
@@ -31,6 +36,13 @@ export default Vue.extend( {
     postService.fetchPosts().then(response => {
       vm.postList = response
     })
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('login', {
+        token: "123456789"
+      })
+    }
   }
 });
 </script>
